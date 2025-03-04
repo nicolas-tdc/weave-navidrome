@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  navidrome:
+    image: deluan/navidrome
+    container_name: navidrome
+    restart: always
+    ports:
+      - "${NAVIDROME_PORT}:${NAVIDROME_PORT}"
+      - "${SUBSONIC_API_PORT}:${SUBSONIC_API_PORT}"
+    volumes:
+      - navidrome_data:/data
+    environment:
+      - ND_SCANSCHEDULE=@every 5m
+      - ND_SUBSONICAPI=true
+      - ND_MUSICFOLDER=/music
+    depends_on:
+      - mongo
+    env_file:
+      - .env
+
+volumes:
+  navidrome_data:
