@@ -13,8 +13,6 @@ services:
       - ND_SCANSCHEDULE=@every 5m
       - ND_SUBSONICAPI=true
       - ND_MUSICFOLDER=/music
-    depends_on:
-      - mongo
     env_file:
       - .env
 
