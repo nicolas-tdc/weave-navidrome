@@ -6,12 +6,10 @@ services:
     restart: always
     ports:
       - "${NAVIDROME_PORT}:${NAVIDROME_PORT}"
-      - "${SUBSONIC_API_PORT}:${SUBSONIC_API_PORT}"
     volumes:
       - navidrome_data:/data
     environment:
       - ND_SCANSCHEDULE=@every 5m
-      - ND_SUBSONICAPI=true
       - ND_MUSICFOLDER=/music
     env_file:
       - .env
