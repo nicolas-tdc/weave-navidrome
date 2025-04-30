@@ -3,7 +3,6 @@ version: "3.9"
 services:
   navidrome:
     image: deluan/navidrome
-    container_name: navidrome
     restart: always
     ports:
       - "${NAVIDROME_PORT}:${NAVIDROME_PORT}"
